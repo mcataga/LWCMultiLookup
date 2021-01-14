@@ -1,0 +1,25 @@
+
+.relativePosition {
+    position:relative;
+}
+.maxWidth{
+    width:100%;
+}
+.fontSize {
+    font-size: 14px;
+}
+.negMar {
+    margin-top: -0.38rem;
+}
+.zIndex {
+    z-index: 500;
+}
+.backgroundColor {
+    background: red;
+}
+.disableHighlight {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10+ and Edge */
+    user-select: none; /* Standard syntax */
+    cursor: pointer;
+}

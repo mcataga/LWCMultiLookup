@@ -1,0 +1,21 @@
+
+<!-- Custom Lightning Pill -->
+<template>
+<span class="slds-pill slds-pill_link" style="width:100%;">
+    <span class="slds-pill__icon_container">
+    <c-generic-icon object-api={objectApi}></c-generic-icon>
+    </span>
+    <span class="slds-pill__action">
+        <a href={url}  title={objectRecord.Name} onclick={navigateToRecordViewPage}>
+        <span class="slds-pill__label" >
+             {objectRecord.Name}</span>
+            </a>
+    </span>
+         <button class="slds-button slds-button_icon slds-button_icon slds-pill__remove" title="Remove" onclick={sendEventToParent}>
+        <svg class="slds-button__icon" aria-hidden="true">
+          <use xlink:href="/apexpages/slds/latest/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+        </svg>
+        <span class="slds-assistive-text">Remove</span>
+        </button>
+</span>
+</template>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>47.0</apiVersion>
+    <description>Custom Lookup</description>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__Tab</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="PARENT_OBJECT_API" type="String" label="Parent Object Api Name" />
+            <property name="CHILD_OBJECT_API" type="String" label="Child Object Api Name"  />
+            <property name="RELATIONSHIP_API_NAME" type="String" label="Api Name of Parent to Child relationship"/>
+            <property name="LOOKUP_TO_PARENT_API" type="String" label="Api Name of Lookup field from Child to Parent" />
+            <property name="CHILD_OBJECT_NAME_API" type="String" label="Api Name of the Child Object's Name field" />
+            <property name="COMPONENT_LABEL" type="String" label="Component Label"/>
+
+            <supportedFormFactors>
+                <supportedFormFactor type="Large" />
+                <supportedFormFactor type="Small" />
+            </supportedFormFactors>
+        </targetConfig>
+        <targetConfig targets="lightning__AppPage">
+            <property name="PARENT_OBJECT_API" type="String" label="Parent Object Api Name" />
+            <property name="CHILD_OBJECT_API" type="String" label="Child Object Api Name"  />
+            <property name="RELATIONSHIP_API_NAME" type="String" label="Api Name of Parent to Child relationship"/>
+            <property name="LOOKUP_TO_PARENT_API" type="String" label="Api Name of Lookup field from Child to Parent" />
+            <property name="CHILD_OBJECT_NAME_API" type="String" label="Api Name of the Child Object's Name field" />
+
+            <property name="COMPONENT_LABEL" type="String" label="Component Label"/>
+            <supportedFormFactors>
+                <supportedFormFactor type="Large" />
+                <supportedFormFactor type="Small" />
+            </supportedFormFactors>
+        </targetConfig>
+    </targetConfigs>
+    <masterLabel>Custom Lookup</masterLabel>
+</LightningComponentBundle>
+

@@ -1,0 +1,90 @@
+
+<!-- Custom Lookup -->
+<template>
+    <lightning-card>
+        <div slot ="title">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                <span class="slds-icon_container slds-icon" title={COMPONENT_LABEL}>
+                    <c-generic-icon object-api={CHILD_OBJECT_API}></c-generic-icon>
+                <span class="slds-assistive-text">{COMPONENT_LABEL}</span>
+                </span>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <a href ={url} title={COMPONENT_LABEL} onclick={handleRelatedListRedirect}>
+                            <span>{COMPONENT_LABEL}
+                                <span if:true={selectedRecordsMap.size}> ({selectedRecordsMap.size})</span>
+                            </span>
+                        </a>
+                    </h2>
+                </div>
+            </header>
+        </div>
+        <!--Search bar-->
+            <div class="slds-p-left_medium slds-p-right_medium">
+                <div class="slds-is-relative">
+                    <lightning-input type="Search" label =" Search for Records" class="slds-combobox__input slds-p-bottom_small "
+                                     placeholder="Search..." name="searchTerm" value={searchTerm} onchange={handleSearchTermChange} onfocus={handleFocusIn} onfocusout= {handleFocusOut}>
+                    </lightning-input>
+                </div>
+                <!--Generated Records RecentlyViewed SObject-->
+                <div class="slds-is-relative negMar">
+                    <div class="slds-is-absolute zIndex maxWidth">
+                        <div if:true={displayRecentlyViewed}>
+                            <div  if:false={recentlyViewedEmpty} onmousedown={keepFocusOn}>
+                                <div class="slds-theme_shade slds-media  slds-border_bottom" >
+                                    <div class=" slds-dropdown_fluid slds-m-left--xx-small fontSize"  > Recently Viewed Records </div>
+                                </div>
+                            </div>
+                            <template for:each={recentlyViewedRecords} for:item="object" >
+                                <div key={object.Id} class="slds-dropdown_fluid">
+                                    <div class="slds-theme_shade slds-media slds-media_center" data-itemid={object.Id} onmousedown={handleSelectElement}>
+                                          <span  class="slds-listbox__option-icon slds-m-around_xx-small slds-p-top_xx-small slds-p-bottom_xx-small">
+                                            <c-generic-icon object-api={CHILD_OBJECT_API}></c-generic-icon>
+                                          </span>
+                                        <span class="slds-media__body disableHighlight">
+                                            <span class="slds-listbox__option-text slds-listbox__option-text_entity">{object.Name}</span>
+                                            </span>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    <!--Generated Records SObject-->
+                        <div if:true={displayRecords}>
+                            <template for:each={objectRecords} for:item="object">
+                                <div key={object.Id} class="slds-listbox__item slds-dropdown_fluid">
+                                    <div class="slds-theme_shade slds-media slds-media_center" data-itemid={object.Id} onmousedown={handleSelectElement}>
+                                  <span  class="slds-listbox__option-icon slds-m-around_xx-small slds-p-top_xx-small slds-p-bottom_xx-small">
+                                    <c-generic-icon object-api={CHILD_OBJECT_API}></c-generic-icon>
+                                  </span>
+                                        <span class="slds-media__body disableHighlight">
+                                    <span class="slds-listbox__option-text slds-listbox__option-text_entity">{object.Name}</span>
+                                    </span>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                    <!--Selected Records-->
+                    <div if:true={selectedRecords} >
+                        <div class="slds-is-relative slds-grid slds-wrap slds-grid ">
+                            <template for:each={selectedRecords} for:item="object">
+                                <div class ="slds-col slds-size_1-of-4" key={object.Id}>
+                                    <c-custom-lightning-pill object-api={CHILD_OBJECT_API} object-record={object} ondeleteselecteditem={handleDeleteElement}></c-custom-lightning-pill>
+                                </div>
+                            </template>
+                            <div class="slds-clearfix" style="width:100%;" if:true={modified}>
+                                <div class ="slds-m-top_small slds-float_right">
+                                    <lightning-button variant="brand" label="Save" onclick={handleSave}> </lightning-button>
+                                </div>
+                            </div>
+                            <div class="slds-p-bottom_small"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    </lightning-card>
+</template>
