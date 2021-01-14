@@ -1,5 +1,5 @@
 ## customMultiLookup created by Mico Cataga
-
+An LWC custom lookup that allows users to reparent child object records while on the parent object
 ## Screenshots
 
 LWC Component Attributes
