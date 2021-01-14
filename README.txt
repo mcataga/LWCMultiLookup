@@ -1,10 +1,12 @@
-customMultiLookup created by Mico Cataga
+## customMultiLookup created by Mico Cataga
+
+## Screenshots
 
 LWC Component Attributes
-![LWC Component attributes](/../master/EditPageView.PNG?raw=true)
+![LWC Component attributes](/images/EditPageView.png?raw=true)
 
 Childen records listed under component, compared the related list
-![Children records under component](../master/RelatedListComparison.png?raw=true)
+![Children records under component](/images/RelatedListComparison.png?raw=true)
 
 An existing record reparented using the component
-![Record reparented](../master/ReparentRecord.png?raw=true)
+![Record reparented](/images/ReparentRecord.png?raw=true)
